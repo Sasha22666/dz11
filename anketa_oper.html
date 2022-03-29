@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Анкета</title>
+</head>
+
+<body>
+    <style>
+    </style>
+    <script>
+        var surname = prompt('Введите фамилию:'); //спрашиваем фамилию
+
+        var name = prompt('Введите имя:'); //спрашиваем имя
+
+        var father_name = prompt('Введите отчество:'); //спрашиваем отчество
+
+        // var age_str = prompt('Введите ваш возраст:'); //спрашиваем возраст
+
+        var age_str = prompt('Введите ваш возраст:'); //спрашиваем возраст
+        var proverka=true;//проверка на корректность возраста
+        do {
+            var age=parseInt(age_str);
+            isNaN(age)?age_str=prompt('Введите ваш возраст корректно (арабскими цифрами):'):proverka=false;
+        }
+        while (proverka);
+        
+        var gender = confirm('Если ваш пол мужской - нажмите OK, если женский - Отмена');  //уточняем пол
+        var gender_str;
+        gender==true?gender_str='мужской':gender_str='женский';
+        
+        //проверяем или наступила пенсия
+        var pens
+        gender_str=='мужской'?((age>60)?pens='да':pens='нет'):((age>55)?pens='да':pens='нет');
+        // if (gender_str=='мужской') //проверяем или наступила пенсия
+        // {
+        //     if (age>60)
+        //     var pens='да';
+        //      else
+        //      var pens='нет';
+        // }
+        // else
+        // {
+        //      if (age>55)
+        //      var pens='да';
+        //     else
+        //     var pens='нет';
+        // }    
+
+        alert //выводим анкету на экран
+            ( "ваше ФИО: "+surname+' '+name+' '+father_name+'\nваш возраст в годах: '+age+'\nваш возраст в днях: '+age*365+'\nчерез пять лет вам будет: '+(age+5)+
+           '\nваш пол: '+gender_str+'\nвы на пенсии: '+pens);
+
+    </script>
+
+</body>
+
+</html>
